@@ -170,4 +170,16 @@ public class MusicOrganizer
             addTrack(track);
         }
     }
+    
+    /*
+     * Método que muestre por pantalla la información de los tracks que contienen dicha cadena en el titulo de la cacion.
+     */
+    public void findInTitle(String song)
+    {
+        for(Track track : tracks) {
+            if(track.getTitle().contains(song)) {
+                System.out.println(track.getDetails());
+            }
+        }
+    }
 }
