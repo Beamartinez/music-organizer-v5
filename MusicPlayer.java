@@ -55,7 +55,8 @@ public class MusicPlayer
     {
         try {
             setupPlayer(filename);
-            Thread playerThread = new Thread() {
+            Thread playerThread = new Thread() 
+            {
                 public void run()
                 {
                     try {
