@@ -15,6 +15,8 @@ public class Track
     private String filename;
     //Cuenta las veces que se reproduce una cancion
     private int playCount;
+    //Genero de la cancion
+    private String genero;
     
     /**
      * Constructor for objects of class Track.
@@ -22,9 +24,9 @@ public class Track
      * @param title The track's title.
      * @param filename The track file. 
      */
-    public Track(String artist, String title, String filename)
+    public Track(String artist, String title, String filename, String genero)
     {
-        setDetails(artist, title, filename);
+        setDetails(artist, title, filename, genero);
     }
     
     /**
@@ -35,7 +37,7 @@ public class Track
      */
     public Track(String filename)
     {
-        setDetails("unknown", "unknown", filename);
+        setDetails("unknown", "unknown", filename, "unknown");
         playCount = 0;
     }
     
@@ -65,6 +67,22 @@ public class Track
     {
         return filename;
     }
+    
+    /*
+     * Devuelve el genero de la cancion
+     */
+    public String getGenero()
+    {
+        return genero;
+    }
+    
+    /*
+     * Cambia el genero de la cancion
+     */
+    public void setGenero(String genero)
+    {
+        this.genero = genero;
+    }
         
     /**
      * Return details of the track: artist, title and file name.
@@ -72,7 +90,7 @@ public class Track
      */
     public String getDetails()
     {
-        return artist + ": " + title + "  (file: " + filename + ")  reproducciones: " + playCount;
+        return artist + ": " + title + "  (file: " + filename + ")  reproducciones: " + playCount + " Genero: " + genero;
     }
     
     /**
@@ -81,11 +99,12 @@ public class Track
      * @param title The track's title.
      * @param filename The track file. 
      */
-    private void setDetails(String artist, String title, String filename)
+    private void setDetails(String artist, String title, String filename, String genero)
     {
         this.artist = artist;
         this.title = title;
         this.filename = filename;
+        this.genero = genero;
     }
     
     /*
