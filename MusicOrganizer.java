@@ -15,6 +15,8 @@ public class MusicOrganizer
     private MusicPlayer player;
     // A reader that can read music files and load them as tracks.
     private TrackReader reader;
+    
+    private boolean playing;
 
     /**
      * Create a MusicOrganizer
@@ -182,6 +184,37 @@ public class MusicOrganizer
             if(track.getTitle().contains(song)) {
                 System.out.println(track.getDetails());
             }
+        }
+    }
+    
+    /*
+     * Cambia el genero de la cancion y si la cancion no existe nos lo hace saber
+     */
+    public void setTrackGenero(int index, String genero)
+    {
+        if (index >= 0 && index < tracks.size())
+        {
+            tracks.get(index).setGenero(genero);
+            System.out.println("El genero ha cambiado");
+        }
+        else
+        {
+            System.out.println("Esa cancion no existe");
+        }
+    }
+    
+    /*
+     * Nos dice si esta sonando alguna cancion o no
+     */
+    public void isPlaying()
+    {
+        if (playing == true)
+        {
+            System.out.println("En este momento hay una cancion reproduciendose");
+        }
+        else
+        {
+            System.out.println("El reproductor esta en stop");
         }
     }
 }
