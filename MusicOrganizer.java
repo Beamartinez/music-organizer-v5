@@ -27,7 +27,7 @@ public class MusicOrganizer
         tracks = new ArrayList<Track>();
         player = new MusicPlayer();
         reader = new TrackReader();
-        readLibrary("audio");
+        readLibrary("miMusica");
         System.out.println("Music library loaded. " + getNumberOfTracks() + " tracks.");
         System.out.println();
     }
