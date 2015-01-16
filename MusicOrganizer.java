@@ -231,4 +231,20 @@ public class MusicOrganizer
             System.out.println(song.getDetails());
         }
     }
+    
+    /*
+     * Elimina del organizador tracks que contengan un determinado artista
+     */
+    public void removeByArtist(String artist)
+    {
+        Iterator<Track> it = tracks.iterator();
+        while (it.hasNext())
+        {
+            Track song = it.next();
+            if (song.getArtist().contains(artist))
+            {
+                it.remove();
+            }
+        }
+    }
 }
