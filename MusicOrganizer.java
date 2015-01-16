@@ -247,4 +247,20 @@ public class MusicOrganizer
             }
         }
     }
+    
+    /*
+     * Elimina del organizador tracks que contengan una determinada cancion
+     */
+    public void removeByTitle(String title)
+    {
+        Iterator<Track> it = tracks.iterator();
+        while (it.hasNext())
+        {
+            Track song = it.next();
+            if (song.getTitle().contains(title))
+            {
+                it.remove();
+            }
+        }
+    }
 }
