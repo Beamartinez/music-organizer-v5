@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * A class to hold details of audio tracks.
@@ -215,6 +216,19 @@ public class MusicOrganizer
         else
         {
             System.out.println("El reproductor esta en stop");
+        }
+    }
+    
+    /*
+     * Muestra los detalles de todos los tracks almacenaos en un organizador
+     */
+    public void listAllTrackWithIterator()
+    {
+        Iterator<Track> it = tracks.iterator();
+        while (it.hasNext())
+        {
+            Track song = it.next();
+            System.out.println(song.getDetails());
         }
     }
 }
