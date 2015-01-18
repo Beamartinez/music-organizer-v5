@@ -273,7 +273,6 @@ public class MusicOrganizer
     public void playRandom()
     {
        Random azar = new Random();
-       int numAzar = azar.nextInt(tracks.size());
-       playTrack(numAzar);
+       playTrack(azar.nextInt(tracks.size()));
     }
 }
