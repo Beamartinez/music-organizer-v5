@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Random;
+import java.util.Collections;
 
 /**
  * A class to hold details of audio tracks.
@@ -274,5 +275,42 @@ public class MusicOrganizer
     {
        Random azar = new Random();
        playTrack(azar.nextInt(tracks.size()));
+    }
+    
+    /*
+     * reproduce los primeros segundos de cada cancion en orden aleatorio
+     */
+    public void playShuffle()
+    {
+        ArrayList<Track> trackShuffle = new ArrayList<Track>();
+        trackShuffle = (ArrayList)tracks.clone();
+        Collections.shuffle(trackShuffle);
+        Iterator<Track> iteTracks = trackShuffle.iterator();
+        while(iteTracks.hasNext())
+        {
+            Track song = iteTracks.next();
+            System.out.println(song.getDetails());
+            song.incrementCount();
+            player.playSample(song.getFilename());
+        }
+    }
+    
+    /*
+     * reproduce los primeros segundos de cada cancion en orden aleatorio
+     */
+    public void playShuffle2(){
+        ArrayList<Track> copia = new ArrayList<Track>();
+        copia = (ArrayList)tracks.clone();
+        int countPlayer = 0;
+        while(countPlayer < tracks.size()){
+            Random random = new Random();
+            int trackShuffle = random.nextInt(copia.size());
+            Track song = copia.get(trackShuffle);
+            System.out.println(song.getDetails());
+            song.incrementCount();
+            player.playSample(song.getFilename());
+            copia.remove(trackShuffle);
+            countPlayer++;
+        }
     }
 }
